@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>demo</title>
+    <script src="./circle-progress.js"></script>
+<style>
+    #app {
+        width: 100px;
+        height: 100px;
+    }
+</style>
+</head>
+<body>
+    <div id="app">
+        
+    </div>
+    <script>
+        var el = document.getElementById('app');
+        var options = {
+            // baseColor: '#AEC9C9', //背景圆弧色
+            // coverColor: '#43BD32'  //进度圆弧色
+            // startRadian: '0.9 * Math.PI', //起始弧度
+        };
+
+        var circle = new CircleProgress(el, options);
+        var percent = 0;
+        var id = setInterval(function() {
+            circle.progress(++percent);
+            if (percent >= 100) {
+                clearInterval(id);
+            }
+        }, 30);
+    </script>
+</html>
